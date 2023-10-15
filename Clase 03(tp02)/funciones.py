@@ -1,4 +1,5 @@
 from data import lista_personajes
+#TP Stark 02 - Tomas Lautaro Diaz Zampella
 
 #A
 def muestra_nombres_heroe_genero_nb ():

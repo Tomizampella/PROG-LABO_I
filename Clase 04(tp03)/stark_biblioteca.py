@@ -2,19 +2,18 @@ from data_stark import lista_personajes
 
 #0
 flag_se_llamo_anteriormente = False
-def stark_normalizar_datos(lista_personajes: list) -> bool:
+def stark_normalizar_datos(lista_heroe: list) -> bool:
     '''Recibe lista_personajes, castea a float o int las valores numericos y retorna True o False'''
     global flag_se_llamo_anteriormente
-    if flag_se_llamo_anteriormente == True or (len(lista_personajes)) < 1:
+    if flag_se_llamo_anteriormente == True or (len(lista_heroe)) < 1:
         return False
     
-
     flag_dato_modificado = False
     
-    for heroe in lista_personajes: 
-        for clave, valor in heroe.items(): 
-            valor_sin_decimal = valor.replace (".", "") 
-            
+    for heroe in lista_heroe: 
+        for clave in heroe:
+            valor = heroe[clave]
+            valor_sin_decimal = valor.replace(".","")
             if valor_sin_decimal.isdigit() == True:
                 if "." in valor:
                     if type(valor) != float:
@@ -369,8 +368,9 @@ def calcular_heroes_por_color_ojos ():
         else:
             contador_colores_ojos[color_ojos] = 1
         
-    for color, cantidad in contador_colores_ojos.items():
-        mensaje = print(f"Color de ojos: {color}, Cantidad: {cantidad}")
+    for color in contador_colores_ojos:
+      cantidad = contador_colores_ojos[color]
+      mensaje = print(f"Color de ojos: {color}, Cantidad: {cantidad}")
     
     return mensaje
         
@@ -389,8 +389,9 @@ def calcular_heroes_por_color_pelo ():
         else:
             contador_colores_pelo[color_pelo] = 1
         
-    for color, cantidad in contador_colores_pelo.items():
-        mensaje = print(f"Color de pelo: {color}, Cantidad: {cantidad}")
+    for color in contador_colores_pelo:
+      cantidad = contador_colores_pelo[color]
+      mensaje = print(f"Color de pelo: {color}, Cantidad: {cantidad}")
     
     return mensaje
 
@@ -409,8 +410,9 @@ def listar_heroes_por_color_ojos ():
 
         heroes_por_color_ojos[color_ojos].append(heroe["nombre"])
 
-    for color, heroes in heroes_por_color_ojos.items():
-        mensaje = print(f"Color de ojos {color} : {heroes}")
+    for color in heroes_por_color_ojos:
+      heroes = heroes_por_color_ojos[color]
+      mensaje = print(f"Color de ojos: {color} : {heroes}")
         
     return mensaje
 
@@ -428,8 +430,9 @@ def listar_heroes_por_tipo_inteligencia ():
 
         heroes_por_tipo_inteligencia[tipo_inteligencia].append(heroe["nombre"])
 
-    for inteligencia, heroes in heroes_por_tipo_inteligencia.items():
-        mensaje = print(f"Tipo inteligencia {inteligencia} : {heroes}")
+    for inteligencia in heroes_por_tipo_inteligencia:
+      heroes = heroes_por_tipo_inteligencia[inteligencia]
+      mensaje = print(f"Tipo inteligencia: {inteligencia} : {heroes}")
         
     return mensaje
 
